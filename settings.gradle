@@ -1,0 +1,4 @@
+rootProject.name = 'classunpacker'
+include 'UnpackProcessor'
+include 'Consumer'
+
