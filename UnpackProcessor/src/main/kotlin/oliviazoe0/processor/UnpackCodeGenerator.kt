@@ -42,7 +42,7 @@ class UnpackCodeGenerator : AbstractProcessor() {
     private fun generateClass(className: String, pkg: String, element: Element){
         val parcelableCreatorName = "CREATOR" // Ignore class field used for implementing the Android Parcelable interface
         val classVariables = element.enclosedElements
-            .filter { it.kind == ElementKind.FIELD && it.simpleName != parcelableCreatorName } // Grab the variables
+            .filter { it.kind == ElementKind.FIELD && it.simpleName.toString() != parcelableCreatorName } // Grab the variables
         if (classVariables.isEmpty()) return; // Self-explanatory
 
         val file = FileSpec.builder(pkg, className)
