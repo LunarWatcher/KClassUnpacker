@@ -20,7 +20,6 @@ class UnpackCodeGenerator : AbstractProcessor() {
         // Find elements with the annotation
         val annotatedElements = roundEnv.getElementsAnnotatedWith(AutoUnpack::class.java)
         if(annotatedElements.isEmpty()) {
-            // Self-explanatory
             return false;
         }
         // Iterate the elements
@@ -40,10 +39,13 @@ class UnpackCodeGenerator : AbstractProcessor() {
     }
 
     private fun generateClass(className: String, pkg: String, element: Element){
-        val parcelableCreatorName = "CREATOR" // Ignore class field used for implementing the Android Parcelable interface
+        
         val classVariables = element.enclosedElements
-            .filter { it.kind == ElementKind.FIELD && it.simpleName.toString() != parcelableCreatorName } // Grab the variables
-        if (classVariables.isEmpty()) return; // Self-explanatory
+            .filter {
+                it.kind == ElementKind.FIELD // Find fields
+                        && Modifier.STATIC !in it.modifiers // that aren't static
+            } // Grab the variables
+        if (classVariables.isEmpty()) return; 
 
         val file = FileSpec.builder(pkg, className)
             .addFunction(FunSpec.builder("iterator") // For automatic unpacking in a for loop
