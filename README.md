@@ -1,3 +1,5 @@
+[![](https://jitpack.io/v/LunarWatcher/KClassUnpacker.svg)](https://jitpack.io/#LunarWatcher/KClassUnpacker)
+
 # Setup
 
 If you haven't already, link Jitpack:
@@ -15,10 +17,12 @@ apply plugin: 'kotlin-kapt'
 ...
 
 dependencies {
-    kapt 'com.github.LunarWatcher:KClassUnpacker:v1.0.0'
-    compileOnly "com.github.LunarWatcher:KClassUnpacker:v1.0.0"
+    kapt 'com.github.LunarWatcher:KClassUnpacker:$version'
+    compileOnly "com.github.LunarWatcher:KClassUnpacker:$version"
 }
 ```
+
+Where `$version` is either a variable, or the version you want to use in plain text (in which case, replace it with the version you want). The available versions can be seen [in the releases](https://github.com/LunarWatcher/KClassUnpacker/releases)
 
 # Usage
 
