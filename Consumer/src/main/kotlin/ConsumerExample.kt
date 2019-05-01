@@ -38,7 +38,7 @@ fun main(a: Array<String>) {
     val delegated = Delegated("Hello World!")
     for (variable in delegated) {
         size++;
-        println("Variable");
+        println(variable);
     }
     require(size == 2) { "Too many items for the delegate" }
     size = 0;

@@ -36,7 +36,7 @@ for(field in someDataClass) {
 
 # Motivation
 
-[This](https://stackoverflow.com/q/47730421/6296561) post on SO.
+[This post on SO.](https://stackoverflow.com/q/47730421/6296561)
 
 # License
 

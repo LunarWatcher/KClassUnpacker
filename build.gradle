@@ -1,7 +1,7 @@
 apply plugin: 'kotlin'
 
 group 'oliviazoe0'
-version '1.0.0'
+version '1.0.2'
 
 buildscript {
     ext.kotlin_version = '1.2.30'
